@@ -23,7 +23,11 @@ class Graph:
         """
         Add a directed edge to the graph.
         """
-        pass  # TODO
+        # pass  #
+        if v1 in self.vertices and v2 in self.vertices:
+            self.vertices[v1].add(v2) #there is an edge from v1 to v2
+        else:
+            raise IndexError("nonexistent vert")
 
     def get_neighbors(self, vertex_id):
         """
