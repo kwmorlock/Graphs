@@ -27,12 +27,15 @@ player = Player(world.starting_room)
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
-# traversal_path = []
+traversal_path = []
 
 #my tips
 #que or stack might be counterproductive, since we cant teleport
 #dictionary probably?
 #might not need a class
+#get to every room with least amount of backtracking
+#use loop logic, want to keep running program until it does what it needs to do, and then moves onto something else
+
 
 # class Traversal_is_the_worstal:
 #     def __init__(self, player):
