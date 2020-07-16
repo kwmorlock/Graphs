@@ -27,7 +27,12 @@ player = Player(world.starting_room)
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
-traversal_path = []
+# traversal_path = []
+
+class Traversal_is_the_worstal:
+    def __init__(self, player):
+        self.player = player
+        self.traversal_path = []
 
 
 
