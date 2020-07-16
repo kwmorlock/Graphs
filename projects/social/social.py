@@ -53,6 +53,7 @@ class SocialGraph:
         # Create friendships
         possible_friendships = [] #holds new edges, that means new friendships
 
+        #avoid duplicates by ensuring the first number is smaller than the second
         for user_id in self.users:
             for friend_id in range(user_id + 1, self.last_id +1): 
                 possible_friendships.append((user_id, friend_id))
@@ -62,6 +63,11 @@ class SocialGraph:
 
        
         # Add friendships
+
+        #create friendships for the first X pairs of the list
+        #X is determined by the forumula: num_users * avg_friendships // 2
+        #Need to divide by 2 since each add_friendships() creates 2 friendships 
+
         for i in range(num_users * avg_friendships // 2):
             friendship = possible_friendships[i]
 
