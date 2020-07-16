@@ -51,7 +51,6 @@ def earliest_ancestor(ancestors, starting_node):
         curr = q.dequeue() # Dequeue the first item
 
         newish = []
-
         change = False  #boolean variable set to false
 
         for node in curr: #loop through each node in the current path
@@ -66,3 +65,7 @@ def earliest_ancestor(ancestors, starting_node):
                 return -1 #no parents
             else:
                 return curr[0] #is an ancestor and will be returned
+
+if __name__ == '__main__':
+    test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 2)]
+    print(earliest_ancestor(test_ancestors, 6))
