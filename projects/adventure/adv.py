@@ -29,10 +29,15 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 # traversal_path = []
 
-class Traversal_is_the_worstal:
-    def __init__(self, player):
-        self.player = player
-        self.traversal_path = []
+#my tips
+#que or stack might be counterproductive, since we cant teleport
+#dictionary probably?
+#might not need a class
+
+# class Traversal_is_the_worstal:
+#     def __init__(self, player):
+#         self.player = player
+#         self.traversal_path = []
 
 
 
