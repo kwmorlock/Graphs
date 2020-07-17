@@ -27,7 +27,9 @@ player = Player(world.starting_room)
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
-traversal_path = []
+
+traversal_path = ['n', 's']
+# traversal_path = []
 
 #my tips
 #que or stack might be counterproductive, since we cant teleport
@@ -43,6 +45,45 @@ traversal_path = []
 #         self.traversal_path = []
 
 
+time_machine = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
+
+previous_choice = [None]
+gogo = {} #we got rooms to see
+got_it = {} #been there done that
+
+def good_choice(room_number):
+    choice = []
+    if 'n' in room_graph[room_number][1].keys():
+        choice.append('n')
+    if 'e' in room_graph[room_number][1].keys():
+        choice.append('e')
+    if 's' in room_graph[room_number][1].keys():
+        choice.append('s')
+    if 'w' in room_graph[room_number][1].keys():
+        choice.append('w')
+    
+    return choice
+
+while len(got_it) < len(room_graph): #while rooms ive been to is less than total rooms
+    roomid = player.current_room.id #You may find the commands `player.current_room.id` useful (directions)
+    if roomid not in gogo:
+
+        got_it[roomid] = roomid
+
+        gogo[roomid] = good_choice(roomid)
+
+    if len(gogo[roomid]) < 1:  
+        previousDirection = previous_choice.pop()
+        traversal_path.append(previousDirection)
+
+        player.travel(previousDirection)
+
+    else:
+        nextDirection = gogo[roomid].pop(0) # removes first item in list (index of 0)
+        traversal_path.append(nextDirection)
+
+        previous_choice.append(time_machine[nextDirection])
+        player.travel(nextDirection)
 
 # TRAVERSAL TEST
 visited_rooms = set()
@@ -64,12 +105,12 @@ else:
 #######
 # UNCOMMENT TO WALK AROUND
 #######
-player.current_room.print_room_description(player)
-while True:
-    cmds = input("-> ").lower().split(" ")
-    if cmds[0] in ["n", "s", "e", "w"]:
-        player.travel(cmds[0], True)
-    elif cmds[0] == "q":
-        break
-    else:
-        print("I did not understand that command.")
+# player.current_room.print_room_description(player)
+# while True:
+#     cmds = input("-> ").lower().split(" ")
+#     if cmds[0] in ["n", "s", "e", "w"]:
+#         player.travel(cmds[0], True)
+#     elif cmds[0] == "q":
+#         break
+#     else:
+#         print("I did not understand that command.")
