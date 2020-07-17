@@ -43,12 +43,6 @@ traversal_path = ['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n
 #use loop logic, want to keep running program until it does what it needs to do, and then moves onto something else
 
 
-# class Traversal_is_the_worstal:
-#     def __init__(self, player):
-#         self.player = player
-#         self.traversal_path = []
-
-
 time_machine = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
 
 previous_choice = [None]
